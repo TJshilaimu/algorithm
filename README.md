@@ -33,3 +33,30 @@ function judgeDuplicate(arr) {
   return false;
 }
 ```
+
+### 计数之字符串中的第一个唯一字符
+
+```js
+function firstUniqChar(s) {
+  let map = {};
+  for (const t of s) {
+    map[t] = (map[t] || 0) + 1;
+  }
+  for (let i = 0; i < s.length; i++) {
+    if (map[s[i]] == 1) {
+      return i;
+    }
+  }
+  return -1;
+}
+```
+
+### 两数组交集
+
+```js
+let intersection = function (arr1, arr2) {
+  return (result = [...new Set(arr1)].filter((item) => {
+    return new Set(arr2).has(item);
+  }));
+};
+```
