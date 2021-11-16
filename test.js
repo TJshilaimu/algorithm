@@ -1,23 +1,27 @@
-function judgeDuplicate(s) {
-  let map = {};
-  for (const t of s) {
-    map[t] = (map[t] || 0) + 1;
-  }
-  for (let i = 0; i < s.length; i++) {
-    if (map[s[i]] == 1) {
-      return i;
-    }
-  }
-  return -1;
+function exchange(arr, a, b) {
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
 }
 
-let t = judgeDuplicate("asdfgasds");
-console.log(t);
+function compare(a, b) {
+  if (a > b) {
+    return true;
+  }
+  return false;
+}
 
-let intersection = function (arr1, arr2) {
-  return (result = [...new Set(arr1)].filter((item) => {
-    return new Set(arr2).has(item);
-  }));
-};
+function sort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i; j++) {
+      if (compare(arr[j], arr[j + 1])) {
+        exchange(arr, j, j + 1);
+      } else {
+      }
+    }
+  }
+}
 
-console.log(intersection([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]));
+let a = [1, 4, 2, 3, 5, 6, 7, 4, 3];
+sort(a);
+console.log(a);
